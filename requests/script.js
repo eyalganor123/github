@@ -3,7 +3,10 @@ var request = new XMLHttpRequest();
 call('GET', 'https://api.github.com/users?since=0', myAmazingCallback);
 
 function myAmazingCallback(e) {
-  appendToList(JSON.parse(e.target.response))
+  appendToList(JSON.parse(e.target.response));
+  
+  // extract next link somehow :)
+  const link = request.getResponseHeader("Link");
 }
 
 function call(method, url, cb) {
